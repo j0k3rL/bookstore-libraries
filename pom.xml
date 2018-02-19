@@ -1,0 +1,37 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.bookstore.libraries</groupId>
+	<artifactId>bookstore-libraries</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<name>Bookstore Libraries</name>
+
+	<properties>
+		<javax.ejb.version>3.0</javax.ejb.version>
+		<org.hibernate.version>1.0.1.Final</org.hibernate.version>
+		<jboss.weld.version>2.3.3.Final</jboss.weld.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>javax.ejb</groupId>
+			<artifactId>ejb-api</artifactId>
+			<version>${javax.ejb.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate.javax.persistence</groupId>
+			<artifactId>hibernate-jpa-2.0-api</artifactId>
+			<version>${org.hibernate.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jboss.weld</groupId>
+			<artifactId>weld-core</artifactId>
+			<version>${jboss.weld.version}</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+</project>

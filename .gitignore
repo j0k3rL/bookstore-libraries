@@ -1,0 +1,7 @@
+# Ignore #
+##########
+.settings
+.project
+.classpath
+target
+*.class
