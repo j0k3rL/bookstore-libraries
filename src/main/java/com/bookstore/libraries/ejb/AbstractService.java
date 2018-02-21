@@ -5,10 +5,11 @@ import javax.interceptor.Interceptors;
 
 import org.apache.log4j.Logger;
 
+import com.bookstore.libraries.BookstoreConstants;
 import com.bookstore.libraries.interceptor.LogInterceptor;
 
 @Interceptors({ LogInterceptor.class })
-public abstract class AbstractService {
+public abstract class AbstractService implements BookstoreConstants {
 
 	protected static Logger logger;
 

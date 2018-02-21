@@ -15,10 +15,11 @@ import javax.persistence.criteria.Root;
 
 import org.apache.log4j.Logger;
 
+import com.bookstore.libraries.BookstoreConstants;
 import com.bookstore.libraries.exception.DAOException;
 import com.bookstore.libraries.exception.ObjectNotFoundDAOException;
 
-public abstract class AbstractDAO<T extends AbstractEntity> {
+public abstract class AbstractDAO<T extends AbstractEntity> implements BookstoreConstants {
 
 	protected static Logger logger;
 
