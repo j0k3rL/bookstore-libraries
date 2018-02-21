@@ -4,6 +4,7 @@ import java.lang.reflect.ParameterizedType;
 import java.util.Collection;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
@@ -12,10 +13,14 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
+import org.apache.log4j.Logger;
+
 import com.bookstore.libraries.exception.DAOException;
 import com.bookstore.libraries.exception.ObjectNotFoundDAOException;
 
 public abstract class AbstractDAO<T extends AbstractEntity> {
+
+	protected static Logger logger;
 
 	@PersistenceContext
 	private EntityManager em;
@@ -26,13 +31,16 @@ public abstract class AbstractDAO<T extends AbstractEntity> {
 	public AbstractDAO() {
 
 		try {
-        	
-        	String clazz = ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0].getTypeName();
-        	entityClass = (Class<T>) Class.forName(clazz);
-		
-        } catch (ClassNotFoundException e) {
-            throw new IllegalStateException();
-        }
+			String clazz = ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0].getTypeName();
+			entityClass = (Class<T>) Class.forName(clazz);
+		} catch (ClassNotFoundException e) {
+			throw new IllegalStateException();
+		}
+	}
+	
+	@PostConstruct
+	private void init() {
+		logger = Logger.getLogger(this.getClass());
 	}
 
 	public Collection<T> listAll() throws DAOException {
@@ -41,10 +49,10 @@ public abstract class AbstractDAO<T extends AbstractEntity> {
 
 			CriteriaBuilder cb = em.getCriteriaBuilder();
 			CriteriaQuery<T> cq = cb.createQuery(entityClass);
-			
+
 			Root<T> rootEntry = cq.from(entityClass);
 			CriteriaQuery<T> all = cq.select(rootEntry);
-			
+
 			TypedQuery<T> allQuery = em.createQuery(all);
 			List<T> list = allQuery.getResultList();
 
@@ -53,7 +61,7 @@ public abstract class AbstractDAO<T extends AbstractEntity> {
 			}
 
 			return list;
-			
+
 		} catch (RuntimeException e) {
 			throw new DAOException(e);
 		}
@@ -71,21 +79,21 @@ public abstract class AbstractDAO<T extends AbstractEntity> {
 	}
 
 	public boolean existById(Long id) throws DAOException {
-		
+
 		try {
-			
+
 			CriteriaBuilder cb = em.getCriteriaBuilder();
 			CriteriaQuery<T> cq = cb.createQuery(entityClass);
-			
+
 			Root<T> rootEntry = cq.from(entityClass);
 			cq.where(cb.equal(rootEntry.get("id"), id));
-			
+
 			CriteriaQuery<T> exist = cq.select(rootEntry);
 			TypedQuery<T> existQuery = em.createQuery(exist);
-			
+
 			existQuery.setMaxResults(1);
 			Object obj = existQuery.getSingleResult();
-			
+
 			return obj != null;
 		} catch (NoResultException e) {
 			return false;
@@ -93,7 +101,7 @@ public abstract class AbstractDAO<T extends AbstractEntity> {
 			throw new DAOException(e);
 		}
 	}
-	
+
 	public final void insert(T entity) throws DAOException {
 
 		try {

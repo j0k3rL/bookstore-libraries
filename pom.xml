@@ -10,6 +10,7 @@
 		<javax.ejb.version>3.0</javax.ejb.version>
 		<org.hibernate.version>1.0.1.Final</org.hibernate.version>
 		<jboss.weld.version>2.3.3.Final</jboss.weld.version>
+		<log4j.version>1.2.17</log4j.version>
 	</properties>
 
 	<dependencies>
@@ -31,6 +32,13 @@
 			<groupId>org.jboss.weld</groupId>
 			<artifactId>weld-core</artifactId>
 			<version>${jboss.weld.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>${log4j.version}</version>
 			<scope>provided</scope>
 		</dependency>
 	</dependencies>
