@@ -1,4 +1,4 @@
-package com.bookstore.libraries.annotation;
+package com.bookstore.libraries.interceptor.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

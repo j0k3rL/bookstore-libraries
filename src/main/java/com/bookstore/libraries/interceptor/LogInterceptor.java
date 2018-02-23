@@ -7,7 +7,7 @@ import javax.interceptor.InvocationContext;
 
 import org.apache.log4j.Logger;
 
-import com.bookstore.libraries.annotation.LogIntercept;
+import com.bookstore.libraries.interceptor.annotation.LogIntercept;
 
 @Priority(Interceptor.Priority.APPLICATION)
 @Interceptor
