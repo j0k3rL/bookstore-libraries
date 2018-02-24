@@ -9,6 +9,7 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
+import com.bookstore.libraries.BookstoreConstants;
 import com.bookstore.libraries.validation.CpfValidator;
 
 @Constraint(validatedBy = CpfValidator.class)
@@ -17,7 +18,7 @@ import com.bookstore.libraries.validation.CpfValidator;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface CpfValid {
 
-	String message() default "Invalid CPF";
+	String message() default BookstoreConstants.CPF_VALIDATION_MESSAGE;
 	Class<?>[] groups() default {};
 	Class<? extends Payload>[] payload() default {};
 }

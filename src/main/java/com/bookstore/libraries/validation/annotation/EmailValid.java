@@ -9,6 +9,7 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
+import com.bookstore.libraries.BookstoreConstants;
 import com.bookstore.libraries.validation.EmailValidator;
 
 @Constraint(validatedBy = EmailValidator.class)
@@ -17,7 +18,7 @@ import com.bookstore.libraries.validation.EmailValidator;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface EmailValid {
 
-	String message() default "Invalid E-mail";
+	String message() default BookstoreConstants.EMAIL_VALIDATION_MESSAGE;
 	Class<?>[] groups() default {};
 	Class<? extends Payload>[] payload() default {};
 }

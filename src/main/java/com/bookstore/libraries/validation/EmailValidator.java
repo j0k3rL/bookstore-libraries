@@ -13,7 +13,9 @@ public class EmailValidator implements ConstraintValidator<EmailValid, String> {
 
 	private Pattern pattern = Pattern.compile(BookstoreConstants.CPF_PATTERN);
 	
-	public void initialize(EmailValid constraintAnnotation) {}
+	public void initialize(EmailValid constraintAnnotation) {
+		
+	}
 
 	public boolean isValid(String value, ConstraintValidatorContext context) {
 		Matcher m = pattern.matcher(value);

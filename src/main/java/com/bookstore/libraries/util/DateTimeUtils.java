@@ -18,7 +18,7 @@ public class DateTimeUtils {
 	
 	public static Calendar parse(String date) throws ParseException {
 		
-		SimpleDateFormat dateFormat = new SimpleDateFormat(BookstoreConstants.DATE_PATTERN);
+		SimpleDateFormat dateFormat = new SimpleDateFormat(BookstoreConstants.DEFAULT_DATE_PATTERN);
 		return convertToCalendar(dateFormat.parse(date));
 	}
 	
@@ -30,7 +30,13 @@ public class DateTimeUtils {
 	
 	public static String format(Date date) {
 		
-		SimpleDateFormat dateFormat = new SimpleDateFormat(BookstoreConstants.DATE_PATTERN);
+		SimpleDateFormat dateFormat = new SimpleDateFormat(BookstoreConstants.DEFAULT_DATE_PATTERN);
+		return dateFormat.format(date);
+	}
+	
+	public static String format(Date date, String pattern) {
+		
+		SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
 		return dateFormat.format(date);
 	}
 }

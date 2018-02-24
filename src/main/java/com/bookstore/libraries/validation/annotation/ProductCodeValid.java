@@ -9,6 +9,7 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
+import com.bookstore.libraries.BookstoreConstants;
 import com.bookstore.libraries.validation.ProductCodeValidator;
 
 @Constraint(validatedBy = ProductCodeValidator.class)
@@ -17,7 +18,7 @@ import com.bookstore.libraries.validation.ProductCodeValidator;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface ProductCodeValid {
 
-	String message() default "Invalid Product Code";
+	String message() default BookstoreConstants.PRODUCT_CODE_VALIDATION_MESSAGE;
 	Class<?>[] groups() default {};
 	Class<? extends Payload>[] payload() default {};
 }

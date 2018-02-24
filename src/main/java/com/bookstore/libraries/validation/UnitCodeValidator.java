@@ -13,7 +13,9 @@ public class UnitCodeValidator implements ConstraintValidator<UnitCodeValid, Str
 
 	private Pattern pattern = Pattern.compile(BookstoreConstants.UNIT_CODE_PATTERN);
 	
-	public void initialize(UnitCodeValid constraintAnnotation) {}
+	public void initialize(UnitCodeValid constraintAnnotation) {
+		
+	}
 
 	public boolean isValid(String value, ConstraintValidatorContext context) {
 		Matcher m = pattern.matcher(value);

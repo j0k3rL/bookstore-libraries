@@ -13,7 +13,9 @@ public class CpfValidator implements ConstraintValidator<CpfValid, String> {
 
 	private Pattern pattern = Pattern.compile(BookstoreConstants.CPF_PATTERN);
 	
-	public void initialize(CpfValid constraintAnnotation) {}
+	public void initialize(CpfValid constraintAnnotation) {
+		
+	}
 
 	public boolean isValid(String value, ConstraintValidatorContext context) {
 		Matcher m = pattern.matcher(value);

@@ -32,8 +32,14 @@ public abstract class AbstractDAO<T extends AbstractEntity> implements Bookstore
 	public AbstractDAO() {
 
 		try {
-			String clazz = ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0].getTypeName();
+			
+			String clazz = ((ParameterizedType) getClass()
+					.getGenericSuperclass())
+					.getActualTypeArguments()[0]
+					.getTypeName();
+		
 			entityClass = (Class<T>) Class.forName(clazz);
+		
 		} catch (ClassNotFoundException e) {
 			throw new IllegalStateException();
 		}

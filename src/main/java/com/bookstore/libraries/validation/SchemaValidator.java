@@ -1,5 +1,7 @@
 package com.bookstore.libraries.validation;
 
+import java.net.URL;
+
 import javax.xml.XMLConstants;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.util.JAXBSource;
@@ -11,21 +13,21 @@ import com.bookstore.libraries.exception.SchemaValidationException;
 
 public class SchemaValidator {
 
-	@SuppressWarnings("rawtypes")
-	public synchronized static void validate(String schemaPath, Class clazz, Object... request)
-			throws SchemaValidationException {
+	public synchronized static void validate(URL schemaResource, Object... parameters) throws SchemaValidationException {
 
 		try {
 
 			SchemaFactory sf = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-			Schema schema = sf.newSchema(clazz.getClassLoader().getResource(schemaPath));
-
-			JAXBContext jc = JAXBContext.newInstance(clazz);
+			Schema schema = sf.newSchema(schemaResource);
+			
 			Validator validator = schema.newValidator();
 
-			for (Object value : request) {
-				validator.validate(new JAXBSource(jc, value));
+			for (Object param : parameters) {
+				
+				JAXBContext jc = JAXBContext.newInstance(param.getClass());
+				validator.validate(new JAXBSource(jc, param));
 			}
+			
 		} catch (Exception e) {
 			throw new SchemaValidationException(e);
 		}

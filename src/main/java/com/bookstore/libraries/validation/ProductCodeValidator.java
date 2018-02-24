@@ -13,7 +13,9 @@ public class ProductCodeValidator implements ConstraintValidator<ProductCodeVali
 
 	private Pattern pattern = Pattern.compile(BookstoreConstants.PRODUCT_CODE_PATTERN);
 	
-	public void initialize(ProductCodeValid constraintAnnotation) {}
+	public void initialize(ProductCodeValid constraintAnnotation) {
+		
+	}
 
 	public boolean isValid(String value, ConstraintValidatorContext context) {
 		Matcher m = pattern.matcher(value);
