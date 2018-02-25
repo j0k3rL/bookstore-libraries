@@ -10,10 +10,11 @@ import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.Validator;
 
 import com.bookstore.libraries.exception.SchemaValidationException;
+import com.bookstore.libraries.ws.AbstractDTO;
 
 public class SchemaValidator {
 
-	public synchronized static void validate(URL schemaResource, Object... parameters) throws SchemaValidationException {
+	public synchronized static void validate(URL schemaResource, AbstractDTO... parameters) throws SchemaValidationException {
 
 		try {
 
@@ -22,7 +23,7 @@ public class SchemaValidator {
 			
 			Validator validator = schema.newValidator();
 
-			for (Object param : parameters) {
+			for (AbstractDTO param : parameters) {
 				
 				JAXBContext jc = JAXBContext.newInstance(param.getClass());
 				validator.validate(new JAXBSource(jc, param));
