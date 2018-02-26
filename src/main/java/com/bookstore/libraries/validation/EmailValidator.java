@@ -11,7 +11,7 @@ import com.bookstore.libraries.validation.annotation.EmailValid;
 
 public class EmailValidator implements ConstraintValidator<EmailValid, String> {
 
-	private Pattern pattern = Pattern.compile(BookstoreConstants.CPF_PATTERN);
+	private Pattern pattern = Pattern.compile(BookstoreConstants.EMAIL_PATTERN, Pattern.CASE_INSENSITIVE);
 	
 	public void initialize(EmailValid constraintAnnotation) {
 		
