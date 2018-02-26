@@ -10,9 +10,9 @@ import javax.validation.Constraint;
 import javax.validation.Payload;
 
 import com.bookstore.libraries.BookstoreConstants;
-import com.bookstore.libraries.validation.ProductCodeValidator;
+import com.bookstore.libraries.validation.UnitCodeValidator;
 
-@Constraint(validatedBy = ProductCodeValidator.class)
+@Constraint(validatedBy = UnitCodeValidator.class)
 @Documented
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
