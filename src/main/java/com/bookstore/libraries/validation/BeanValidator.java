@@ -19,10 +19,14 @@ public class BeanValidator {
 		Validator validator = factory.getValidator();
 		
 		StringBuilder messageValidation = new StringBuilder();
-		Set<ConstraintViolation<Object>> constraintViolations = validator.validate(parameters[0]);
-
-		for(ConstraintViolation<Object> cv : constraintViolations) {
-			messageValidation.append(cv.getMessage() + BookstoreConstants.NEW_LINE);
+		
+		for(Object param : parameters) {
+		
+			Set<ConstraintViolation<Object>> constraintViolations = validator.validate(param);
+			
+			for(ConstraintViolation<Object> cv : constraintViolations) {
+				messageValidation.append(cv.getMessage() + BookstoreConstants.NEW_LINE);
+			}
 		}
 		
 		if(StringUtils.isNotEmpty(messageValidation)) {
