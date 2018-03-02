@@ -7,13 +7,13 @@ import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
 import com.bookstore.libraries.BookstoreConstants;
-import com.bookstore.libraries.validation.annotation.EmailValid;
+import com.bookstore.libraries.validation.annotation.Email;
 
-public class EmailValidator implements ConstraintValidator<EmailValid, String> {
+public class EmailValidator implements ConstraintValidator<Email, String> {
 
 	private Pattern pattern = Pattern.compile(BookstoreConstants.EMAIL_PATTERN, Pattern.CASE_INSENSITIVE);
 	
-	public void initialize(EmailValid constraintAnnotation) {
+	public void initialize(Email constraintAnnotation) {
 		
 	}
 

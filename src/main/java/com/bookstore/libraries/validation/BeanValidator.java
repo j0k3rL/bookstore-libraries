@@ -9,11 +9,12 @@ import javax.validation.ValidatorFactory;
 
 import com.bookstore.libraries.BookstoreConstants;
 import com.bookstore.libraries.exception.ValidationException;
+import com.bookstore.libraries.util.CollectionUtils;
 import com.bookstore.libraries.util.StringUtils;
 
 public class BeanValidator {
 
-	public synchronized static void validate(Object... parameters) throws ValidationException {
+	public static void validate(Object... parameters) throws ValidationException {
 
 		ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
 		Validator validator = factory.getValidator();
@@ -31,6 +32,18 @@ public class BeanValidator {
 		
 		if(StringUtils.isNotEmpty(messageValidation)) {
 			throw new ValidationException(messageValidation.toString());
+		}
+	}
+	
+	public static void validateProperty(Object parameter, String property) throws ValidationException {
+
+		ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+		Validator validator = factory.getValidator();
+		
+		Set<ConstraintViolation<Object>> constraintViolation = validator.validateProperty(parameter, property);
+		
+		if(CollectionUtils.isNotEmpty(constraintViolation)) {
+			throw new ValidationException(constraintViolation.iterator().next().getMessage());
 		}
 	}
 }

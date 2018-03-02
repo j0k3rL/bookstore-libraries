@@ -8,13 +8,13 @@ import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
 import com.bookstore.libraries.BookstoreConstants;
-import com.bookstore.libraries.validation.annotation.CpfValid;
+import com.bookstore.libraries.validation.annotation.CPF;
 
-public class CpfValidator implements ConstraintValidator<CpfValid, String> {
+public class CpfValidator implements ConstraintValidator<CPF, String> {
 
 	private Pattern pattern = Pattern.compile(BookstoreConstants.CPF_PATTERN);
 
-	public void initialize(CpfValid constraintAnnotation) {
+	public void initialize(CPF constraintAnnotation) {
 
 	}
 

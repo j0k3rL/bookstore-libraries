@@ -10,15 +10,15 @@ import javax.validation.Constraint;
 import javax.validation.Payload;
 
 import com.bookstore.libraries.BookstoreConstants;
-import com.bookstore.libraries.validation.EmailValidator;
+import com.bookstore.libraries.validation.ProductCodeValidator;
 
-@Constraint(validatedBy = EmailValidator.class)
+@Constraint(validatedBy = ProductCodeValidator.class)
 @Documented
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface EmailValid {
+public @interface ProductCode {
 
-	String message() default BookstoreConstants.EMAIL_VALIDATION_MESSAGE;
+	String message() default BookstoreConstants.PRODUCT_CODE_VALIDATION_MESSAGE;
 	Class<?>[] groups() default {};
 	Class<? extends Payload>[] payload() default {};
 }

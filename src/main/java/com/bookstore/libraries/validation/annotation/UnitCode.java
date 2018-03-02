@@ -16,7 +16,7 @@ import com.bookstore.libraries.validation.UnitCodeValidator;
 @Documented
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface UnitCodeValid {
+public @interface UnitCode {
 
 	String message() default BookstoreConstants.UNIT_CODE_VALIDATION_MESSAGE;
 	Class<?>[] groups() default {};

@@ -10,15 +10,16 @@ import javax.validation.Constraint;
 import javax.validation.Payload;
 
 import com.bookstore.libraries.BookstoreConstants;
-import com.bookstore.libraries.validation.CpfValidator;
+import com.bookstore.libraries.validation.EmailValidator;
 
-@Constraint(validatedBy = CpfValidator.class)
+@Deprecated
+@Constraint(validatedBy = EmailValidator.class)
 @Documented
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface CpfValid {
+public @interface Email {
 
-	String message() default BookstoreConstants.CPF_VALIDATION_MESSAGE;
+	String message() default BookstoreConstants.EMAIL_VALIDATION_MESSAGE;
 	Class<?>[] groups() default {};
 	Class<? extends Payload>[] payload() default {};
 }

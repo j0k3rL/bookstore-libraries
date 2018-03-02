@@ -10,15 +10,16 @@ import javax.validation.Constraint;
 import javax.validation.Payload;
 
 import com.bookstore.libraries.BookstoreConstants;
-import com.bookstore.libraries.validation.ProductCodeValidator;
+import com.bookstore.libraries.validation.CpfValidator;
 
-@Constraint(validatedBy = ProductCodeValidator.class)
+@Deprecated
+@Constraint(validatedBy = CpfValidator.class)
 @Documented
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface ProductCodeValid {
+public @interface CPF {
 
-	String message() default BookstoreConstants.PRODUCT_CODE_VALIDATION_MESSAGE;
+	String message() default BookstoreConstants.CPF_VALIDATION_MESSAGE;
 	Class<?>[] groups() default {};
 	Class<? extends Payload>[] payload() default {};
 }

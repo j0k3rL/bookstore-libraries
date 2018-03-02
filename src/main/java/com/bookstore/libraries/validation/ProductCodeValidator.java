@@ -7,13 +7,13 @@ import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
 import com.bookstore.libraries.BookstoreConstants;
-import com.bookstore.libraries.validation.annotation.ProductCodeValid;
+import com.bookstore.libraries.validation.annotation.ProductCode;
 
-public class ProductCodeValidator implements ConstraintValidator<ProductCodeValid, String> {
+public class ProductCodeValidator implements ConstraintValidator<ProductCode, String> {
 
 	private Pattern pattern = Pattern.compile(BookstoreConstants.PRODUCT_CODE_PATTERN);
 	
-	public void initialize(ProductCodeValid constraintAnnotation) {
+	public void initialize(ProductCode constraintAnnotation) {
 
 	}
 

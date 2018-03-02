@@ -7,13 +7,13 @@ import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
 import com.bookstore.libraries.BookstoreConstants;
-import com.bookstore.libraries.validation.annotation.UnitCodeValid;
+import com.bookstore.libraries.validation.annotation.UnitCode;
 
-public class UnitCodeValidator implements ConstraintValidator<UnitCodeValid, String> {
+public class UnitCodeValidator implements ConstraintValidator<UnitCode, String> {
 
 	private Pattern pattern = Pattern.compile(BookstoreConstants.UNIT_CODE_PATTERN);
 	
-	public void initialize(UnitCodeValid constraintAnnotation) {
+	public void initialize(UnitCode constraintAnnotation) {
 		
 	}
 
