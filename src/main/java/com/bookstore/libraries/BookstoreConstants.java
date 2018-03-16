@@ -14,4 +14,5 @@ public interface BookstoreConstants {
 	
 	public static final String NEW_LINE = "\n";
 	public static final String EMPTY = "";
+	public static final String DEPENDENCY_INJECTION = "cdi";
 }
