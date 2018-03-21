@@ -21,7 +21,7 @@ public abstract class AbstractWS implements BookstoreConstants {
 		logger = Logger.getLogger(this.getClass());
 	}
 	
-	protected void validateContract(String schemaPath, Object... parameters) throws ValidationException {
+	protected void validateRequest(String schemaPath, Object... parameters) throws ValidationException {
 	
 		URL schema = ResourceUtils.getResource(this.getClass(), schemaPath);
 		

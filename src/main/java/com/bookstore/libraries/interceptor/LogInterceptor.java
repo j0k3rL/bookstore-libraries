@@ -10,8 +10,7 @@ import org.apache.log4j.Logger;
 import com.bookstore.libraries.interceptor.annotation.LogIntercept;
 
 @Priority(Interceptor.Priority.APPLICATION)
-@Interceptor
-@LogIntercept
+@Interceptor @LogIntercept
 public class LogInterceptor {
 
 	@AroundInvoke

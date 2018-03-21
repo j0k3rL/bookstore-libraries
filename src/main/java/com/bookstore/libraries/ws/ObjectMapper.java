@@ -1,8 +1,8 @@
 package com.bookstore.libraries.ws;
 
-public interface ObjectMapper<E, D> {
+public interface ObjectMapper<E, T> {
 
-	E toEntity(D dto);
+	E toEntity(T to);
 	
-	D toDTO(E entity);
+	T toDTO(E entity);
 }
