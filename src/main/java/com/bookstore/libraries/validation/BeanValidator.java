@@ -14,6 +14,8 @@ import com.bookstore.libraries.util.StringUtils;
 
 public class BeanValidator {
 
+	private BeanValidator() {}
+	
 	public static void validate(Object... parameters) throws ValidationException {
 
 		ValidatorFactory factory = Validation.buildDefaultValidatorFactory();

@@ -15,6 +15,8 @@ import net.sf.jasperreports.engine.export.JRPdfExporter;
 
 public class ReportGenerator {
 
+	private ReportGenerator() {}
+	
 	public static void generatePDF(String jasper, Map<String, Object> parameters, JRDataSource dataSource, OutputStream out) throws ReportException {
 
 		try {

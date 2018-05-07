@@ -13,6 +13,8 @@ import com.bookstore.libraries.exception.SchemaValidationException;
 
 public class SchemaValidator {
 
+	private SchemaValidator() {}
+	
 	public synchronized static void validate(URL schemaResource, Object... parameters) throws SchemaValidationException {
 
 		try {
