@@ -9,6 +9,8 @@ import com.bookstore.libraries.BookstoreConstants;
 
 public class DateTimeUtils {
 
+	private DateTimeUtils() {}
+	
 	public static Calendar convertToCalendar(Date date) {
 		
 		Calendar cal = Calendar.getInstance();
